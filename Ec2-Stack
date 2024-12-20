@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09' 
+Description: Simple CloudFormation template to create an EC2 instance 
+Parameters: 
+  KeyName: 
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance 
+    Type: String 
+    ConstraintDescription: Must be the name of an existing EC2 KeyPair. 
+
+Resources: 
+  InstanceSecurityGroup: 
+    Type: 'AWS::EC2::SecurityGroup' 
+    Properties: 
+      GroupDescription: Enable SSH access 
+      SecurityGroupIngress: 
+        - IpProtocol: tcp 
+          FromPort: 22 
+          ToPort: 22 
+          CidrIp: 0.0.0.0/0 # Update this to restrict access as needed, e.g., your IP range 
+
+  MyEC2Instance: 
+    Type: 'AWS::EC2::Instance' 
+    Properties: 
+      InstanceType: t2.micro 
+      KeyName: !Ref KeyName 
+      ImageId: ami-0d1622042e957c247  # Update this to the appropriate AMI ID for your region 
+      SecurityGroupIds: 
+        - !Ref InstanceSecurityGroup 
+      Tags: 
+        - Key: Name 
+          Value: MyEC2Instance 
+
+Outputs: 
+  InstanceId: 
+    Description: The Instance ID 
+    Value: !Ref MyEC2Instance 
+  PublicIP: 
+    Description: The public IP address of the EC2 instance 
+    Value: !GetAtt MyEC2Instance.PublicIp 
+  AvailabilityZone: 
+    Description: The Availability Zone of the EC2 instance 
+    Value: !GetAtt MyEC2Instance.AvailabilityZone
