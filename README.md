@@ -7,7 +7,7 @@ Purpose behind this CloudFormation Tasks is to save the time for future creation
 
 ## Steps
 
-1) Created a stack for S3 bucket and selected required settings fot the template.
+### 1) Created a stack for S3 bucket and selected required settings fot the template.
 
 ![Screenshot (47)](https://github.com/user-attachments/assets/a1eedde5-9196-4246-8ef7-e6332063adff)
 ![Screenshot (48)](https://github.com/user-attachments/assets/a143ae26-4255-4e1f-b38c-f28c156cd0ad)
@@ -27,7 +27,7 @@ Purpose behind this CloudFormation Tasks is to save the time for future creation
 
 ## Steps
 
-1) Created a stack for Ec2-instance and selected required settings fot the template.
+### 1) Created a stack for Ec2-instance and selected required settings fot the template.
 
 ![Screenshot (47)](https://github.com/user-attachments/assets/8ee442bb-c0a9-4915-aae6-0b8498491aa8)
 ![Screenshot (48)](https://github.com/user-attachments/assets/aabab7bc-6700-4d3a-adf7-46ccc952575b)
